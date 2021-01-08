@@ -3,11 +3,19 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "web-test-runner \"src/**/*.test.tsx\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "link": "npm run build && cd dist && npm link",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components"
+    }
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,16 +46,26 @@
   "dependencies": {
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
+    "snowpack": "^2.18.5",
     "styled-components": "^5.2.1",
     "tailwindcss": "^2.0.2",
     "twin.macro": "^2.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@snowpack/app-scripts-react": "^1.12.6",
+    "@snowpack/plugin-dotenv": "^2.0.4",
+    "@snowpack/plugin-react-refresh": "^2.3.7",
+    "@snowpack/plugin-typescript": "^1.1.0",
+    "@snowpack/web-test-runner-plugin": "^0.1.4",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
     "@storybook/react": "^6.1.11",
+    "@types/react": "^16.14.2",
+    "@types/react-dom": "^16.9.8",
+    "@types/snowpack-env": "^2.3.2",
+    "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
     "babel-loader": "^8.2.2",

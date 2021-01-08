@@ -1,11 +1,24 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2015",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "skipLibCheck": true,
+    // Ensure that .d.ts files are created by tsc, but not .js files
     "declaration": true,
-    "outDir": "./dist",
-    "jsx": "react"
+    "declarationDir": "dist/types",
+    // "emitDeclarationOnly": true,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true
   },
-  "exclude": ["stories"],
-  "include": ["src/**/*"]
+  "include": ["src/**/*.tsx", "types/*.ts"],
+  "exclude": ["node_modules", "dist"],
+  "files": ["twin.d.ts"]
 }
